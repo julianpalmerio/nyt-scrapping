@@ -117,3 +117,9 @@ class Scrapper:
             self.logger.error(f"Error getting the news webelements. Error: {ex}")
             raise ex
 
+    def get_image_webelements(self) -> Union[List[WebElement], None]:
+        try:
+            return self.browser.find_elements("alias:search_result_img")
+        except Exception as ex:
+            self.logger.error(f"Error getting the image webelements. Error: {ex}")
+            raise ex
