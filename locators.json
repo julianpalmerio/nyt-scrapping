@@ -1,4 +1,32 @@
 {
+    "date_range_end_date": {
+        "screenshot": ".images/data_range_end_date-screenshot.png",
+        "source": "https://www.nytimes.com/search?query=robot",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//button[@data-testid=\"search-date-dropdown-a\"]/..//input[@id=\"endDate\"]"
+    },
+    "date_range_filter_button": {
+        "screenshot": ".images/date_range_button-screenshot.png",
+        "source": "https://www.nytimes.com/search?query=robot",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//button[@data-testid=\"search-date-dropdown-a\"]/label[text()=\"Date Range\"]"
+    },
+    "date_range_specific_dates_button": {
+        "screenshot": ".images/data_range_specific_dates_button-screenshot.png",
+        "source": "https://www.nytimes.com/search?dropmab=false&query=robot&sort=best",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//button[@data-testid=\"search-date-dropdown-a\"]/..//button[@value=\"Specific Dates\"]"
+    },
+    "date_range_start_date": {
+        "screenshot": ".images/data_range_start_date-screenshot.png",
+        "source": "https://www.nytimes.com/search?dropmab=false&query=robot&sort=best",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//button[@data-testid=\"search-date-dropdown-a\"]/..//input[@id=\"startDate\"]"
+    },
     "search_button": {
         "screenshot": ".images/search_button-screenshot.png",
         "source": "https://www.nytimes.com/",

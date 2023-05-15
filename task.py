@@ -12,6 +12,7 @@ def main():
         URL = configuration["url"]
         PHRASE = configuration["phrase"]
         SORT_BY = configuration["sort_by"]
+        MONTHS_TO_RETRIEVE = configuration["months_to_retrieve"]
     except Exception:
         logger.exception(
             "Error getting the configuration from Robocorp Input Work Item."
@@ -24,6 +25,7 @@ def main():
         scrapper.search_phrase(PHRASE)
         scrapper.filter_section()
         scrapper.sort_news_by(SORT_BY)
+        scrapper.filter_date_range(MONTHS_TO_RETRIEVE)
     except Exception:
         logger.exception("Error scrapping the website.")
         return
