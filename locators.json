@@ -1,0 +1,16 @@
+{
+    "search_button": {
+        "screenshot": ".images/search_button-screenshot.png",
+        "source": "https://www.nytimes.com/",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//button[@data-test-id=\"search-button\"]"
+    },
+    "search_input": {
+        "screenshot": ".images/search_input-screenshot.png",
+        "source": "https://www.nytimes.com/",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//input[@data-testid=\"search-input\"][@name=\"query\"]"
+    }
+}

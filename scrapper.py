@@ -20,3 +20,14 @@ class Scrapper:
         except Exception as ex:
             self.logger.error(f"Error opening the website {url}. Error: {ex}")
             raise ex
+
+    def search_phrase(self, phrase: str) -> None:
+        try:
+            self.browser.click_element_when_visible("alias:search_button")
+            self.browser.input_text_when_element_is_visible(
+                "alias:search_input", phrase
+            )
+            self.browser.press_keys("alias:search_input", "ENTER")
+        except Exception as ex:
+            self.logger.error(f"Error searching the phrase {phrase}. Error: {ex}")
+            raise ex
