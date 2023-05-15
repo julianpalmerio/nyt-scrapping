@@ -41,6 +41,13 @@
         "type": "browser",
         "value": "//div[@id=\"app\"]//input[@data-testid=\"search-input\"][@name=\"query\"]"
     },
+    "search_results_li": {
+        "screenshot": null,
+        "source": "https://www.nytimes.com/search?query=robot",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//ol[@data-testid='search-results']//li[@data-testid='search-bodega-result']"
+    },
     "search_show_more_button": {
         "screenshot": ".images/search_show_more_button-screenshot.png",
         "source": "https://www.nytimes.com/search?query=robots",

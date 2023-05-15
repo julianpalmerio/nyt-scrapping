@@ -110,3 +110,10 @@ class Scrapper:
             self.logger.error(f"Error showing more news. Error: {ex}")
             raise ex
 
+    def get_news_webelements(self) -> Union[List[WebElement], None]:
+        try:
+            return self.browser.find_elements("alias:search_results_li")
+        except Exception as ex:
+            self.logger.error(f"Error getting the news webelements. Error: {ex}")
+            raise ex
+

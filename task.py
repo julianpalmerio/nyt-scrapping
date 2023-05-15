@@ -31,6 +31,10 @@ def main():
         scrapper.filter_date_range(MONTHS_TO_RETRIEVE)
         sleep(3)
         scrapper.show_more_news()
+        news_webelements = scrapper.get_news_webelements()
+        if not news_webelements:
+            logger.info("No news found.")
+            return
     except Exception:
         logger.exception("Error scrapping the website.")
         return
