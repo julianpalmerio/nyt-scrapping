@@ -4,6 +4,7 @@ import logging
 from RPA.Robocorp.WorkItems import WorkItems
 
 from scrapper import Scrapper
+from data_parser import DataParser
 
 
 def main():
@@ -40,6 +41,12 @@ def main():
         logger.exception("Error scrapping the website.")
         return
 
+    try:
+        data_parser = DataParser(logger)
+        news = data_parser.get_text_of_news_webelements(news_webelements)
+    except Exception:
+        logger.exception("Error parsing the data.")
+        return
 
 if __name__ == "__main__":
     main()
