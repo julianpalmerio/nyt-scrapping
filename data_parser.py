@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 from typing import List
+import re
 
 from selenium.webdriver.remote.webelement import WebElement
 
@@ -104,3 +105,22 @@ class DataParser:
     def _count_phrases_in_text(text: str, phrase: str) -> int:
         return text.lower().count(phrase.lower())
 
+    def has_money_in_news(
+        self, news: list, title_index: int, description_index: int
+    ) -> List[bool]:
+        try:
+            return [
+                self._cointains_money(element[title_index])
+                or self._cointains_money(element[description_index])
+                for element in news
+            ]
+        except Exception as ex:
+            self.logger.error(f"Error checking if the news contains money. Error: {ex}")
+            raise ex
+
+    @staticmethod
+    def _cointains_money(text: str) -> bool:
+        regex_for_money = (
+            r"(?:(?:\$\d{1,3}(?:,\d{3})*|\$\d+)(?:\.\d+)?|[\d]+(?:\sdollars?|\sUSD))"
+        )
+        return bool(re.search(regex_for_money, text))

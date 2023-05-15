@@ -52,6 +52,9 @@ def main():
         phrases_in_news = data_parser.count_phrases_in_news(
             news, PHRASE, TITLE_INDEX, DESCRIPTION_INDEX
         )
+        news_contains_money = data_parser.has_money_in_news(
+            news, TITLE_INDEX, DESCRIPTION_INDEX
+        )
     except Exception:
         logger.exception("Error parsing the data.")
         return
