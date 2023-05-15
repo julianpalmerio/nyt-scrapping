@@ -17,8 +17,12 @@ def main():
         )
         return
 
-def minimal_task():
-    print("Done.")
+    try:
+        scrapper = Scrapper()
+        scrapper.open_website(URL)
+    except Exception:
+        logger.exception("Error scrapping the website.")
+        return
 
 
 if __name__ == "__main__":
