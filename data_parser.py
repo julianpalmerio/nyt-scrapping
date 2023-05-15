@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 from typing import List
 
 from selenium.webdriver.remote.webelement import WebElement
@@ -40,3 +41,36 @@ class DataParser:
         except Exception as ex:
             self.logger.error(f"Error getting the image urls. Error: {ex}")
             raise ex
+
+    def get_parsed_dates(self, news: List[List[str]], date_index: int) -> List[str]:
+        try:
+            dates = [new[date_index] for new in news]
+            parsed_dates = [self._parse_date(date) for date in dates]
+            return parsed_dates
+        except Exception as ex:
+            self.logger.error(f"Error parsing the dates. Error: {ex}")
+            raise ex
+
+    def _parse_date(self, date: str) -> str:
+        try:
+            return (
+                datetime.strptime(date, "%b. %d")
+                .replace(year=datetime.now().year)
+                .strftime("%m/%d/%Y")
+            )
+        except ValueError:
+            try:
+                return (
+                    datetime.strptime(date, "%B %d")
+                    .replace(year=datetime.now().year)
+                    .strftime("%m/%d/%Y")
+                )
+            except ValueError:
+                try:
+                    return datetime.strptime(date, "%b %d %Y").strftime("%m/%d/%Y")
+                except ValueError:
+                    self.logger.warning(
+                        f"The date: '{date}' has not recognized format. "
+                        "It will be saved without formatting."
+                    )
+                    return date

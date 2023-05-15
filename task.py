@@ -17,6 +17,7 @@ def main():
         PHRASE = configuration["phrase"]
         SORT_BY = configuration["sort_by"]
         MONTHS_TO_RETRIEVE = configuration["months_to_retrieve"]
+        DATE_INDEX = configuration["date_index"]
     except Exception:
         logger.exception(
             "Error getting the configuration from Robocorp Input Work Item."
@@ -45,6 +46,7 @@ def main():
         data_parser = DataParser(logger)
         news = data_parser.get_text_of_news_webelements(news_webelements)
         images_urls = data_parser.get_urls_of_image_webelements(image_webelements)
+        parsed_dates = data_parser.get_parsed_dates(news, DATE_INDEX)
     except Exception:
         logger.exception("Error parsing the data.")
         return

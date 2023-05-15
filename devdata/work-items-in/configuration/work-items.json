@@ -4,7 +4,8 @@
         "url": "https://www.nytimes.com/",
         "phrase": "A.I.",
         "sort_by": "newest",
-        "months_to_retrieve": 0
+        "months_to_retrieve": 0,
+        "date_index": 0
       },
       "files": {
       }
