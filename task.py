@@ -11,6 +11,7 @@ def main():
         configuration = WorkItems().get_input_work_item().payload
         URL = configuration["url"]
         PHRASE = configuration["phrase"]
+        SORT_BY = configuration["sort_by"]
     except Exception:
         logger.exception(
             "Error getting the configuration from Robocorp Input Work Item."
@@ -22,6 +23,7 @@ def main():
         scrapper.open_website(URL)
         scrapper.search_phrase(PHRASE)
         scrapper.filter_section()
+        scrapper.sort_news_by(SORT_BY)
     except Exception:
         logger.exception("Error scrapping the website.")
         return

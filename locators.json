@@ -26,5 +26,12 @@
         "strategy": "xpath",
         "type": "browser",
         "value": "//div[@id=\"app\"]//label[@data-testid=\"DropdownLabel\"]/span[text()=\"Technology\"]"
+    },
+    "select_sort_by": {
+        "screenshot": ".images/select_sort_by-screenshot.png",
+        "source": "https://www.nytimes.com/search?query=robot",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//main[@id='site-content']//select[@data-testid=\"SearchForm-sortBy\"]"
     }
 }

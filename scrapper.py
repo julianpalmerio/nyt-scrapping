@@ -47,3 +47,11 @@ class Scrapper:
         except Exception as ex:
             self.logger.error(f"Error filtering the section. Error: {ex}")
             raise ex
+
+    def sort_news_by(self, sort_by: str) -> None:
+        try:
+            self.browser.select_from_list_by_value("alias:select_sort_by", sort_by)
+        except Exception as ex:
+            self.logger.error(f"Error sorting the news by {sort_by}. Error: {ex}")
+            raise ex
+
