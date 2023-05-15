@@ -5,6 +5,8 @@
         "phrase": "A.I.",
         "sort_by": "newest",
         "months_to_retrieve": 0,
+        "images_path": "./images/",
+        "csv_path": "./news.csv",
         "date_index": 0,
         "title_index": 2,
         "description_index": 3
