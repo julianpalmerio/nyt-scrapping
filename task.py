@@ -21,6 +21,7 @@ def main():
         scrapper = Scrapper()
         scrapper.open_website(URL)
         scrapper.search_phrase(PHRASE)
+        scrapper.filter_section()
     except Exception:
         logger.exception("Error scrapping the website.")
         return

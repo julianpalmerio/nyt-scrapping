@@ -12,5 +12,19 @@
         "strategy": "xpath",
         "type": "browser",
         "value": "//div[@id=\"app\"]//input[@data-testid=\"search-input\"][@name=\"query\"]"
+    },
+    "section_filter_button": {
+        "screenshot": ".images/section_button-screenshot.png",
+        "source": "https://www.nytimes.com/search?query=robot",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//button[@data-testid=\"search-multiselect-button\"]/label[text()=\"Section\"]"
+    },
+    "section_label_technology": {
+        "screenshot": ".images/section_technology_filter-screenshot.png",
+        "source": "https://www.nytimes.com/search?dropmab=false&query=robot&sort=best",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id=\"app\"]//label[@data-testid=\"DropdownLabel\"]/span[text()=\"Technology\"]"
     }
 }
