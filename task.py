@@ -6,6 +6,7 @@ from RPA.Robocorp.WorkItems import WorkItems
 from scrapper import Scrapper
 from data_parser import DataParser
 from image_downloader import ImageDownloader
+from data_formatter import DataFormatter
 
 
 def main():
@@ -70,5 +71,20 @@ def main():
         logger.exception("Error downloading the images.")
         return
 
+    try:
+        data_formatter = DataFormatter(logger)
+        formatted_list = data_formatter.create_formatted_list(
+            news,
+            parsed_dates,
+            images_filenames,
+            phrases_in_news,
+            news_contains_money,
+            TITLE_INDEX,
+            DESCRIPTION_INDEX,
+            ["Date", "Title", "Description", "Image", "Phrase count", "Contains money"],
+        )
+    except Exception:
+        logger.exception("Error formatting the data.")
+        return
 if __name__ == "__main__":
     main()
