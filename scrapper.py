@@ -123,3 +123,10 @@ class Scrapper:
         except Exception as ex:
             self.logger.error(f"Error getting the image webelements. Error: {ex}")
             raise ex
+
+    def close_all_browsers(self) -> None:
+        try:
+            self.browser.close_all_browsers()
+        except Exception as ex:
+            self.logger.error(f"Error closing the browser. Error: {ex}")
+            raise ex

@@ -47,6 +47,8 @@ def main():
     except Exception:
         logger.exception("Error parsing the data.")
         return
+    finally:
+        scrapper.close_all_browsers()
 
 if __name__ == "__main__":
     main()
