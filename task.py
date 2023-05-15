@@ -1,4 +1,7 @@
-"""Template robot with Python."""
+import logging
+def main():
+    logger = logging.getLogger("Main Robot")
+    logger.setLevel(logging.INFO)
 
 
 def minimal_task():
@@ -6,4 +9,4 @@ def minimal_task():
 
 
 if __name__ == "__main__":
-    minimal_task()
+    main()
