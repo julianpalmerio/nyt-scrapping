@@ -74,3 +74,33 @@ class DataParser:
                         "It will be saved without formatting."
                     )
                     return date
+
+    def count_phrases_in_news(
+        self, news: list, phrase: str, title_index: int, description_index: int
+    ) -> List[int]:
+        try:
+            phrases_in_title = self._count_phrases_by_column_index(
+                news, phrase, title_index
+            )
+            phrases_in_description = self._count_phrases_by_column_index(
+                news, phrase, description_index
+            )
+            return [
+                phrases_in_title + phrases_in_description
+                for phrases_in_title, phrases_in_description in zip(
+                    phrases_in_title, phrases_in_description
+                )
+            ]
+        except Exception as ex:
+            self.logger.error(f"Error counting the phrases in the news. Error: {ex}")
+            raise ex
+
+    def _count_phrases_by_column_index(
+        self, news: list, phrase: str, index: int
+    ) -> List[int]:
+        return [self._count_phrases_in_text(element[index], phrase) for element in news]
+
+    @staticmethod
+    def _count_phrases_in_text(text: str, phrase: str) -> int:
+        return text.lower().count(phrase.lower())
+
