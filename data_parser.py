@@ -27,3 +27,16 @@ class DataParser:
             self.logger.error(f"Error getting the text of the news. Error: {ex}")
             raise ex
 
+    def get_urls_of_image_webelements(
+        self, image_webelements: List[WebElement]
+    ) -> List[str]:
+        # Get the urls of the images
+        # If the image is not found, then save the url as None
+        try:
+            images_urls = [
+                webelement.get_attribute("src") for webelement in image_webelements
+            ]
+            return images_urls
+        except Exception as ex:
+            self.logger.error(f"Error getting the image urls. Error: {ex}")
+            raise ex

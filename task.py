@@ -44,6 +44,7 @@ def main():
     try:
         data_parser = DataParser(logger)
         news = data_parser.get_text_of_news_webelements(news_webelements)
+        images_urls = data_parser.get_urls_of_image_webelements(image_webelements)
     except Exception:
         logger.exception("Error parsing the data.")
         return
