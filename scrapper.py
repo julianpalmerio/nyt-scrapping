@@ -1,9 +1,11 @@
 import logging
 from datetime import datetime
 from time import sleep
+from typing import Union, List
 
 from dateutil.relativedelta import relativedelta
 from RPA.Browser.Selenium import Selenium
+from selenium.webdriver.remote.webelement import WebElement
 
 
 class Scrapper:
