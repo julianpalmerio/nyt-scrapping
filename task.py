@@ -7,6 +7,7 @@ from scrapper import Scrapper
 from data_parser import DataParser
 from image_downloader import ImageDownloader
 from data_formatter import DataFormatter
+from helpers import save_csv
 
 
 def main():
@@ -20,6 +21,7 @@ def main():
         SORT_BY = configuration["sort_by"]
         MONTHS_TO_RETRIEVE = configuration["months_to_retrieve"]
         IMAGES_PATH = configuration["images_path"]
+        CSV_PATH = configuration["csv_path"]
         DATE_INDEX = configuration["date_index"]
         TITLE_INDEX = configuration["title_index"]
         DESCRIPTION_INDEX = configuration["description_index"]
@@ -86,5 +88,13 @@ def main():
     except Exception:
         logger.exception("Error formatting the data.")
         return
+
+    try:
+        save_csv(formatted_list, CSV_PATH)
+    except Exception:
+        logger.exception("Error saving the data.")
+        return
+
+
 if __name__ == "__main__":
     main()
