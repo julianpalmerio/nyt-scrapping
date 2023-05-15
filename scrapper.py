@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+from time import sleep
 
 from dateutil.relativedelta import relativedelta
 from RPA.Browser.Selenium import Selenium
@@ -96,5 +97,16 @@ class Scrapper:
             return start_date, end_date
         except Exception as ex:
             self.logger.error(f"Error getting the date range. Error: {ex}")
+            raise ex
+
+    def show_more_news(self) -> None:
+        try:
+            while self.browser.does_page_contain_button(
+                "alias:search_show_more_button"
+            ):
+                self.browser.click_button("alias:search_show_more_button")
+                sleep(1)
+        except Exception as ex:
+            self.logger.error(f"Error showing more news. Error: {ex}")
             raise ex
 

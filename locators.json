@@ -41,6 +41,13 @@
         "type": "browser",
         "value": "//div[@id=\"app\"]//input[@data-testid=\"search-input\"][@name=\"query\"]"
     },
+    "search_show_more_button": {
+        "screenshot": ".images/search_show_more_button-screenshot.png",
+        "source": "https://www.nytimes.com/search?query=robots",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//button[@data-testid='search-show-more-button']"
+    },
     "section_filter_button": {
         "screenshot": ".images/section_button-screenshot.png",
         "source": "https://www.nytimes.com/search?query=robot",

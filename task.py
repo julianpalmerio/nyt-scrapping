@@ -1,3 +1,4 @@
+from time import sleep
 import logging
 
 from RPA.Robocorp.WorkItems import WorkItems
@@ -26,6 +27,8 @@ def main():
         scrapper.filter_section()
         scrapper.sort_news_by(SORT_BY)
         scrapper.filter_date_range(MONTHS_TO_RETRIEVE)
+        sleep(3)
+        scrapper.show_more_news()
     except Exception:
         logger.exception("Error scrapping the website.")
         return
