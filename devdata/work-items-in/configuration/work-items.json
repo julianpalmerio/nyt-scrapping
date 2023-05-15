@@ -3,6 +3,8 @@
       "payload": {
         "url": "https://www.nytimes.com/",
         "phrase": "A.I.",
+        "sort_by": "newest",
+        "months_to_retrieve": 0
       },
       "files": {
       }
