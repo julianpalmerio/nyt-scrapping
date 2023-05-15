@@ -5,6 +5,7 @@ from RPA.Robocorp.WorkItems import WorkItems
 
 from scrapper import Scrapper
 from data_parser import DataParser
+from image_downloader import ImageDownloader
 
 
 def main():
@@ -17,6 +18,7 @@ def main():
         PHRASE = configuration["phrase"]
         SORT_BY = configuration["sort_by"]
         MONTHS_TO_RETRIEVE = configuration["months_to_retrieve"]
+        IMAGES_PATH = configuration["images_path"]
         DATE_INDEX = configuration["date_index"]
         TITLE_INDEX = configuration["title_index"]
         DESCRIPTION_INDEX = configuration["description_index"]
@@ -60,6 +62,13 @@ def main():
         return
     finally:
         scrapper.close_all_browsers()
+
+    try:
+        image_downloader = ImageDownloader(logger)
+        images_filenames = image_downloader.download_images(images_urls, IMAGES_PATH)
+    except Exception:
+        logger.exception("Error downloading the images.")
+        return
 
 if __name__ == "__main__":
     main()
