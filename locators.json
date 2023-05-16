@@ -69,6 +69,13 @@
         "type": "browser",
         "value": "//div[@id=\"app\"]//button[@data-testid=\"search-multiselect-button\"]/label[text()=\"Section\"]"
     },
+    "section_filter_list": {
+        "screenshot": null,
+        "source": "https://www.nytimes.com/search?dropmab=false&query=a.i.&sort=best",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id='app']//button[@data-testid='search-multiselect-button']/label[text()='Section']/../..//ul[@data-testid='multi-select-dropdown-list']"
+    },
     "section_label_technology": {
         "screenshot": ".images/section_technology_filter-screenshot.png",
         "source": "https://www.nytimes.com/search?dropmab=false&query=robot&sort=best",

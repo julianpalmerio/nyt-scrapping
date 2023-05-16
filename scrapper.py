@@ -6,6 +6,7 @@ from typing import Union, List
 from dateutil.relativedelta import relativedelta
 from RPA.Browser.Selenium import Selenium
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.remote.errorhandler import NoSuchElementException
 
 
 class Scrapper:
@@ -37,11 +38,22 @@ class Scrapper:
             self.logger.error(f"Error searching the phrase {phrase}. Error: {ex}")
             raise ex
 
-    def filter_section(self) -> None:
+    def filter_section(self, section: str) -> None:
         # This method should be refactored to accept a list of sections
         try:
             self.browser.click_element_when_visible("alias:section_filter_button")
-            self.browser.click_element_when_visible("alias:section_label_technology")
+            list_items: WebElement = self.browser.find_element(
+                "alias:section_filter_list"
+            )
+            try:
+                tech_item = list_items.find_element(
+                    by="xpath", value=f"//span[text()='{section}']"
+                )
+            except NoSuchElementException:
+                self.logger.warning("The section filter does not contain the section.")
+                self.browser.click_element("alias:section_filter_button")
+                return
+            tech_item.click()
             self.browser.click_element("alias:section_filter_button")
         except AssertionError as ex:
             if "not visible after 5 seconds" in str(ex):

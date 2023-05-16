@@ -3,6 +3,7 @@
       "payload": {
         "url": "https://www.nytimes.com/",
         "phrase": "A.I.",
+        "section": "Technology",
         "sort_by": "newest",
         "months_to_retrieve": 0,
         "images_path": "./images/",

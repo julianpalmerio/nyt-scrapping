@@ -18,6 +18,7 @@ def main():
         configuration = WorkItems().get_input_work_item().payload
         URL = configuration["url"]
         PHRASE = configuration["phrase"]
+        SECTION = configuration["section"]
         SORT_BY = configuration["sort_by"]
         MONTHS_TO_RETRIEVE = configuration["months_to_retrieve"]
         IMAGES_PATH = configuration["images_path"]
@@ -35,7 +36,7 @@ def main():
         scrapper = Scrapper()
         scrapper.open_website(URL)
         scrapper.search_phrase(PHRASE)
-        scrapper.filter_section()
+        scrapper.filter_section(SECTION)
         scrapper.sort_news_by(SORT_BY)
         scrapper.filter_date_range(MONTHS_TO_RETRIEVE)
         sleep(3)
