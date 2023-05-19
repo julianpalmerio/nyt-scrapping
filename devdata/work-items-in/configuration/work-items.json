@@ -6,8 +6,8 @@
         "section": "Technology",
         "sort_by": "newest",
         "months_to_retrieve": 0,
-        "images_path": "./images/",
-        "csv_path": "./news.csv",
+        "images_path": "./output/images/",
+        "csv_path": "/output/news.csv",
         "date_index": 0,
         "title_index": 2,
         "description_index": 3
