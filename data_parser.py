@@ -36,7 +36,7 @@ class DataParser:
         # If the image is not found, then save the url as None
         try:
             images_urls = [
-                webelement.get_attribute("src") for webelement in image_webelements
+                image_webelement.get_attribute("src") if image_webelement else None for image_webelement in image_webelements
             ]
             return images_urls
         except Exception as ex:

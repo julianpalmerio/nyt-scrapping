@@ -45,7 +45,7 @@ def main():
         if not news_webelements:
             logger.info("No news found.")
             return
-        image_webelements = scrapper.get_image_webelements()
+        image_webelements = scrapper.get_image_webelements(news_webelements)
     except Exception:
         logger.exception("Error scrapping the website.")
         return

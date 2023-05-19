@@ -15,6 +15,9 @@ class ImageDownloader:
     def download_images(self, images_urls: List[str], images_path: str) -> List[str]:
         image_filenames = []
         for url in images_urls:
+            if url is None:
+                image_filenames.append("")
+                continue
             image_response = self._get_image(url)
             if image_response is None:
                 image_filenames.append("")

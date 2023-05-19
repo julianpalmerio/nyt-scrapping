@@ -131,9 +131,16 @@ class Scrapper:
             self.logger.error(f"Error getting the news webelements. Error: {ex}")
             raise ex
 
-    def get_image_webelements(self) -> Union[List[WebElement], None]:
+    def get_image_webelements(self, news_webelements: List[WebElement]) -> Union[List[WebElement], None]:
         try:
-            return self.browser.find_elements("alias:search_result_img")
+            image_webelements = []
+            for news_webelement in news_webelements:
+                try:
+                    image_webelement = news_webelement.find_element(by="xpath", value=".//img")
+                    image_webelements.append(image_webelement)
+                except NoSuchElementException:
+                    image_webelements.append(None)
+            return image_webelements
         except Exception as ex:
             self.logger.error(f"Error getting the image webelements. Error: {ex}")
             raise ex
