@@ -118,6 +118,8 @@ class Scrapper:
             while self.browser.does_page_contain_button(
                 "alias:search_show_more_button"
             ):
+                self.browser.scroll_element_into_view("alias:search_show_more_button")
+                self.browser.capture_page_screenshot("./output/screenshot.png")
                 self.browser.wait_and_click_button("alias:search_show_more_button")
                 sleep(1)
         except Exception as ex:
