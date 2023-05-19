@@ -89,5 +89,13 @@
         "strategy": "xpath",
         "type": "browser",
         "value": "//main[@id='site-content']//select[@data-testid=\"SearchForm-sortBy\"]"
+    },
+    "gdpr_accept_button": {
+        "screenshot": null,
+        "source": "https://www.nytimes.com/",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//button[@data-testid=\"GDPR-accept\"]"
     }
+
 }

@@ -115,6 +115,7 @@ class Scrapper:
 
     def show_more_news(self) -> None:
         try:
+            self._skip_gdpr_policy()
             while self.browser.does_page_contain_button(
                 "alias:search_show_more_button"
             ):
@@ -123,6 +124,10 @@ class Scrapper:
         except Exception as ex:
             self.logger.error(f"Error showing more news. Error: {ex}")
             raise ex
+
+    def _skip_gdpr_policy(self) -> None:
+        if self.browser.does_page_contain_element("alias:gdpr_accept_button"):
+            self.browser.wait_and_click_button("alias:gdpr_accept_button")
 
     def get_news_webelements(self) -> Union[List[WebElement], None]:
         try:
