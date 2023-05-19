@@ -118,7 +118,7 @@ class Scrapper:
             while self.browser.does_page_contain_button(
                 "alias:search_show_more_button"
             ):
-                self.browser.click_button("alias:search_show_more_button")
+                self.browser.wait_and_click_button("alias:search_show_more_button")
                 sleep(1)
         except Exception as ex:
             self.logger.error(f"Error showing more news. Error: {ex}")
